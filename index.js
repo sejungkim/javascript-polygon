@@ -12,7 +12,7 @@ function calculateCircleSize(radius1,radius2) {
 }
 
 function calculateRectSize(width,height) {
-    if(typeof width === 'string'||typeof height === 'string'){
+    if(typeof width !== 'number' && typeof height !== 'number'){
         console.log('숫자형타입만 계산이 가능합니다');
     } else if(arguments.length===0){
         console.log('최소 한가지 값이 필요합니다')
