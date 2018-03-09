@@ -1,30 +1,34 @@
 function checkNumberOfInput(validNum, inputVal) {
-    if(inputVal.length !== validNum) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return (validNum === inputVal.length) ?  1 : 0;
 }
 function calculateCircle(radius) {
+    let result;
     if(!checkNumberOfInput(1, arguments)) {
-        return console.log("1개의 인자가 필요합니다.");
+        result = "1개의 인자가 필요합니다.";
     }
-    let result = radius * radius * Math.PI;
+    else {
+        result = radius * radius * Math.PI;
+    }
     return console.log(result);
 }
 function calculateSquare(width, height) {
+    let result;
     if(!checkNumberOfInput(2, arguments)) {
-        return console.log("2개의 인자가 필요합니다.");
+        result = "2개의 인자가 필요합니다.";
     }
-    let result = width * height;
+    else {
+        result = width * height;
+    }
     return console.log(result);
 }
 function calculateTrapezoid(upper, lower, height) {
+    let result;
     if(!checkNumberOfInput(3, arguments)) {
-        return console.log("3개의 인자가 필요합니다.");
+        result = "3개의 인자가 필요합니다.";
     }
-    let result = (upper + lower) * height;
+    else {
+        result = (upper + lower) * height;
+    }
     return console.log(result);
 }
 
