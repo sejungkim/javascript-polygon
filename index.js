@@ -13,5 +13,13 @@ function calculateCircle(radius) {
     let result = radius * radius * Math.PI;
     return console.log(result);
 }
+function calculateSquare(width, height) {
+    if(!checkNumberOfInput(2, arguments)) {
+        return console.log("2개의 인자가 필요합니다.");
+    }
+    let result = width * height;
+    return console.log(result);
+}
 
-calculateCircle(3);
+//calculateCircle(3);
+calculateSquare(3,4);
