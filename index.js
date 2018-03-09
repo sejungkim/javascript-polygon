@@ -20,6 +20,14 @@ function calculateSquare(width, height) {
     let result = width * height;
     return console.log(result);
 }
+function calculateTrapezoid(upper, lower, height) {
+    if(!checkNumberOfInput(3, arguments)) {
+        return console.log("3개의 인자가 필요합니다.");
+    }
+    let result = (upper + lower) * height;
+    return console.log(result);
+}
 
-//calculateCircle(3);
-calculateSquare(3,4);
+calculateCircle(10);
+calculateSquare(10,15);
+calculateTrapezoid(10,5,12);
