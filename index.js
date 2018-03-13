@@ -1,22 +1,31 @@
-function checkEvery() {
-    
+function checkEvery(targetArr, funcName) {
+    for(let i = 0; i < targetArr.length; i++) {
+        if(funcName(targetArr[i])) {
+            continue;
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
 }
+
 function checkInputValue(validNum, inputVal) {
     let inputValArray = Array.from(inputVal);
-    if(!inputValArray.every(elem => toString.call(elem) === "[object Number]")) {
+    if(!checkEvery(inputValArray, elem => typeof elem === "number")) {
         throw "숫자형 타입만 계산이 가능합니다.";
     }
     if(inputValArray.length === 0) {
         throw "최소 한가지 값이 필요합니다.";
     }
-    if(!inputValArray.every(elem => elem > 0)) {
+    if(!checkEvery(inputValArray, elem => elem > 0)) {
         throw "입력값은 0보다 커야 합니다.";
     }
     if(validNum !== inputValArray.length) {
         throw `${validNum}개의 인자가 필요합니다.`;
     }
-    return true;
 }
+
 function calculateCircle(radius) {
     let result;
     try {
@@ -58,5 +67,5 @@ function calculateTrapezoid(upper, lower, height) {
 }
 
 calculateCircle(10);
-calculateSquare(10,15);
-calculateTrapezoid(10,5,12);
+// calculateSquare(10,15);
+// calculateTrapezoid(10,5,12);
