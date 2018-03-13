@@ -32,12 +32,14 @@ function calculateCircle(radius) {
     console.log(result);
     return true;
 }
+
 function calculateSquare(width, height) {
     checkInputValue(2, arguments);
     let result = width * height;
     console.log(result);
     return true;
 }
+
 function calculateTrapezoid(upper, lower, height) {
     checkInputValue(3, arguments);
     result = (upper + lower) * height / 2;
