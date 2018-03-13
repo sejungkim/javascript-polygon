@@ -1,9 +1,6 @@
 function checkEvery(targetArr, funcName) {
     for(let i = 0; i < targetArr.length; i++) {
-        if(funcName(targetArr[i])) {
-            continue;
-        }
-        else {
+        if(!funcName(targetArr[i])) {
             return false;
         }
     }
@@ -15,7 +12,7 @@ function checkInputValue(validNum, inputVal) {
     if(!checkEvery(inputValArray, elem => typeof elem === "number")) {
         throw "숫자형 타입만 계산이 가능합니다.";
     }
-    if(inputValArray.length === 0) {
+    if(!inputValArray.length) {
         throw "최소 한가지 값이 필요합니다.";
     }
     if(!checkEvery(inputValArray, elem => elem > 0)) {
