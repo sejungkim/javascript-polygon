@@ -27,45 +27,24 @@ function checkInputValue(validNum, inputVal) {
 }
 
 function calculateCircle(radius) {
-    let result;
-    try {
-        checkInputValue(1, arguments);
-    }
-    catch(e) {
-        console.log(e);
-        return false;
-    }
-    result = radius * radius * Math.PI;
+    checkInputValue(1, arguments);
+    let result = radius * radius * Math.PI;
     console.log(result);
     return true;
 }
 function calculateSquare(width, height) {
-    let result;
-    try {
-        checkInputValue(2, arguments);
-    }
-    catch(e) {
-        console.log(e);
-        return false;
-    }
-    result = width * height;
+    checkInputValue(2, arguments);
+    let result = width * height;
     console.log(result);
     return true;
 }
 function calculateTrapezoid(upper, lower, height) {
-    let result;
-    try {
-        checkInputValue(3, arguments);
-    }
-    catch(e) {
-        console.log(e);
-        return false;
-    }
+    checkInputValue(3, arguments);
     result = (upper + lower) * height / 2;
     console.log(result);
     return true;
 }
 
 calculateCircle(10);
-// calculateSquare(10,15);
-// calculateTrapezoid(10,5,12);
+calculateSquare(10,15);
+calculateTrapezoid(10,5,12);
