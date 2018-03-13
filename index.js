@@ -1,3 +1,6 @@
+function checkEvery() {
+    
+}
 function checkInputValue(validNum, inputVal) {
     let inputValArray = Array.from(inputVal);
     if(!inputValArray.every(elem => toString.call(elem) === "[object Number]")) {
