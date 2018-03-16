@@ -45,18 +45,16 @@ function calculateTrapezoid(upper, lower, height) {
 }
 
 function getArea(shape, v1, v2, v3) {
-  let result;
   switch (shape) {
     case 'circle':
       if (v2 === undefined) {
-        result = calculateCircle(v1);
+        calculateCircle(v1);
       }
       else {
         for (let i = 0; i < v2; i++) {
-          result = calculateCircle(v1 + i);
+          calculateCircle(v1 + i);
         }
       }
-
       break;
     case 'rect':
       calculateSquare(v1, v2);
@@ -67,6 +65,6 @@ function getArea(shape, v1, v2, v3) {
   }
 }
 
-getArea('circle', 1, 1);
+getArea('circle', 1, 3);
 getArea('rect', 10, 15);
 getArea('trapezoid', 10, 15, 12);
