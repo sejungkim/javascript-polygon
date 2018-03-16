@@ -7,11 +7,15 @@ function checkEvery(targetArr, funcName) {
   return true;
 }
 
+function numberOfInput(targetArr) {
+  return (targetArr.filter(elem => elem !== undefined)).length;
+}
+
 function checkInputValue(validNum, inputValArray) {
-  if (checkEvery(inputValArray, elem => typeof elem === "undefined")) {
+  if (!numberOfInput(inputValArray)) {
     throw "최소 한가지 값이 필요합니다.";
   }
-  if (validNum !== (inputValArray.filter(elem => elem !== undefined)).length) {
+  if (validNum !== numberOfInput(inputValArray)) {
     throw `${validNum}개의 인자가 필요합니다.`;
   }
   if (!checkEvery(inputValArray, elem => typeof elem === "number")) {
@@ -41,12 +45,18 @@ function calculateTrapezoid(upper, lower, height) {
 }
 
 function getArea(shape, v1, v2, v3) {
+  let result;
   switch (shape) {
     case 'circle':
-      v2 = (v2 === undefined ? 1 : v2);
-      for (let i = 0; i < v2; i++) {
-        calculateCircle(v1 + i);
+      if (v2 === undefined) {
+        result = calculateCircle(v1);
       }
+      else {
+        for (let i = 0; i < v2; i++) {
+          result = calculateCircle(v1 + i);
+        }
+      }
+
       break;
     case 'rect':
       calculateSquare(v1, v2);
