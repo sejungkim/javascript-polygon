@@ -1,3 +1,6 @@
+var countCal = 0;
+var orderCal = [];
+
 function checkEvery(targetArr, funcName) {
   for (let i = 0; i < targetArr.length; i++) {
     if (!funcName(targetArr[i])) {
@@ -27,22 +30,38 @@ function checkInputValue(inputValArray, validNum) {
   }
 }
 
+function getReport(collectValue) {
+  let result;
+  if (collectValue) {
+    countCal++;
+    orderCal.push(collectValue);
+    result = `계산이 ${countCal}번 일어났습니다.`;
+  }
+  else {
+    result = '계산수행순서 : ' + orderCal.join(', ');
+  }
+  console.log(result);
+}
+
 function calculateCircle(radius) {
   checkInputValue([radius], 1);
   let result = radius * radius * Math.PI;
   console.log(result);
+  getReport('circle');
 }
 
 function calculateSquare(width, height) {
   checkInputValue([width, height], 2);
   let result = width * height;
   console.log(result);
+  getReport('rect');
 }
 
 function calculateTrapezoid(upper, lower, height) {
   checkInputValue([upper, lower, height], 3);
   let result = (upper + lower) * height / 2;
   console.log(result);
+  getReport('trapezoid');
 }
 
 function getArea(shape, v1, v2, v3) {
@@ -64,6 +83,9 @@ function getArea(shape, v1, v2, v3) {
   }
 }
 
-getArea('circle', 1, 3);
+calculateCircle(1);
+calculateCircle(2);
+getArea('circle', 2);
 getArea('rect', 10, 15);
 getArea('trapezoid', 10, 15, 12);
+getReport();
