@@ -50,6 +50,12 @@ function printReport(report) {
   console.log(report);
 }
 
+function repeatCalculateCircle(radius, repeat) {
+  for (let i = 0; i < repeat; i++) {
+    calculateCircle(radius + i);
+  }
+}
+
 function calculateCircle(radius) {
   checkInputValue([radius], 1);
   let result = radius * radius * Math.PI;
@@ -75,11 +81,7 @@ function getArea(shape, v1, v2, v3) {
   switch (shape) {
     case 'circle':
       if (!v2) calculateCircle(v1);
-      else {
-        for (let i = 0; i < v2; i++) {
-          calculateCircle(v1 + i);
-        }
-      }
+      else repeatCalculateCircle(v1, v2);
       break;
     case 'rect':
       calculateSquare(v1, v2);
