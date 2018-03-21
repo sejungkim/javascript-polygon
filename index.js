@@ -11,7 +11,9 @@ function checkEvery(targetArr, funcName) {
 }
 
 function numberOfInput(targetArr) {
-  return (targetArr.filter(elem => typeof elem !== 'undefined')).length;
+  let rmUndefined = targetArr.filter(elem => typeof elem !== 'undefined');
+  let result = rmUndefined.length
+  return result;
 }
 
 function checkInputValue(inputValArray, validNum) {
