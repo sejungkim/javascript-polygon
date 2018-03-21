@@ -41,13 +41,9 @@ function getReport(collectValue) {
   }
   else {
     result = '계산수행순서 : ' + orderCal.join(', ');
-    printReport(result);
+    console.log(result);
   }
   return result;
-}
-
-function printReport(report) {
-  console.log(report);
 }
 
 function repeatCalculateCircle(radius, repeat) {
@@ -60,21 +56,21 @@ function calculateCircle(radius) {
   checkInputValue([radius], 1);
   let result = radius * radius * Math.PI;
   console.log(result);
-  printReport(getReport('circle'));
+  console.log(getReport('circle'));
 }
 
 function calculateSquare(width, height) {
   checkInputValue([width, height], 2);
   let result = width * height;
   console.log(result);
-  printReport(getReport('rect'));
+  console.log(getReport('rect'));
 }
 
 function calculateTrapezoid(upper, lower, height) {
   checkInputValue([upper, lower, height], 3);
   let result = (upper + lower) * height / 2;
   console.log(result);
-  printReport(getReport('trapezoid'));
+  console.log(getReport('trapezoid'));
 }
 
 function getArea(shape, v1, v2, v3) {
