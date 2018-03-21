@@ -41,29 +41,34 @@ function getReport(collectValue) {
   }
   else {
     result = '계산수행순서 : ' + orderCal.join(', ');
+    printReport(result);
   }
-  console.log(result);
+  return result;
+}
+
+function printReport(report) {
+  console.log(report);
 }
 
 function calculateCircle(radius) {
   checkInputValue([radius], 1);
   let result = radius * radius * Math.PI;
   console.log(result);
-  getReport('circle');
+  printReport(getReport('circle'));
 }
 
 function calculateSquare(width, height) {
   checkInputValue([width, height], 2);
   let result = width * height;
   console.log(result);
-  getReport('rect');
+  printReport(getReport('rect'));
 }
 
 function calculateTrapezoid(upper, lower, height) {
   checkInputValue([upper, lower, height], 3);
   let result = (upper + lower) * height / 2;
   console.log(result);
-  getReport('trapezoid');
+  printReport(getReport('trapezoid'));
 }
 
 function getArea(shape, v1, v2, v3) {
