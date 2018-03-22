@@ -10,18 +10,18 @@ function checkEvery(targetArr, funcName) {
   return true;
 }
 
-function numberOfInput(targetArr) {
+function getNumberOfInput(targetArr) {
   let rmUndefined = targetArr.filter(elem => typeof elem !== 'undefined');
   let result = rmUndefined.length
   return result;
 }
 
 function checkInputValue(inputValArray, { expectedValue }) {
-  let numberOfValidInput = numberOfInput(inputValArray);
-  if (!numberOfValidInput) {
+  let getNumberOfValidInput = getNumberOfInput(inputValArray);
+  if (!getNumberOfValidInput) {
     throw "최소 한가지 값이 필요합니다.";
   }
-  if (numberOfValidInput !== expectedValue) {
+  if (getNumberOfValidInput !== expectedValue) {
     throw `${expectedValue}개의 인자가 필요합니다.`;
   }
   if (!checkEvery(inputValArray, elem => typeof elem === 'number')) {
@@ -88,9 +88,9 @@ function getArea(shape, v1, v2, v3) {
   }
 }
 
-// calculateCircle(1);
-// calculateCircle(2);
-// getArea('circle', 2);
-// getArea('rect', 10, 15);
-getArea('trapezoid', 10,);
-// getReport();
+calculateCircle(1);
+calculateCircle(2);
+getArea('circle', 2);
+getArea('rect', 10, 15);
+getArea('trapezoid', 10, 15, 12);
+getReport();
