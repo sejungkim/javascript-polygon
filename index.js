@@ -16,13 +16,13 @@ function numberOfInput(targetArr) {
   return result;
 }
 
-function checkInputValue(inputValArray, validNum) {
+function checkInputValue(inputValArray, { expectedValue }) {
   let numberOfValidInput = numberOfInput(inputValArray);
   if (!numberOfValidInput) {
     throw "최소 한가지 값이 필요합니다.";
   }
-  if (numberOfValidInput !== validNum) {
-    throw `${validNum}개의 인자가 필요합니다.`;
+  if (numberOfValidInput !== expectedValue) {
+    throw `${expectedValue}개의 인자가 필요합니다.`;
   }
   if (!checkEvery(inputValArray, elem => typeof elem === 'number')) {
     throw "숫자형 타입만 계산이 가능합니다.";
@@ -53,21 +53,21 @@ function repeatCalculateCircle(radius, repeat) {
 }
 
 function calculateCircle(radius) {
-  checkInputValue([radius], 1);
+  checkInputValue([radius], { expectedValue: 1 });
   let result = radius * radius * Math.PI;
   console.log(result);
   console.log(getReport('circle'));
 }
 
 function calculateSquare(width, height) {
-  checkInputValue([width, height], 2);
+  checkInputValue([width, height], { expectedValue: 2 });
   let result = width * height;
   console.log(result);
   console.log(getReport('rect'));
 }
 
 function calculateTrapezoid(upper, lower, height) {
-  checkInputValue([upper, lower, height], 3);
+  checkInputValue([upper, lower, height], { expectedValue: 3 });
   let result = (upper + lower) * height / 2;
   console.log(result);
   console.log(getReport('trapezoid'));
@@ -88,9 +88,9 @@ function getArea(shape, v1, v2, v3) {
   }
 }
 
-calculateCircle(1);
-calculateCircle(2);
-getArea('circle', 2);
-getArea('rect', 10, 15);
-getArea('trapezoid', 10, 15, 12);
-getReport();
+// calculateCircle(1);
+// calculateCircle(2);
+// getArea('circle', 2);
+// getArea('rect', 10, 15);
+getArea('trapezoid', 10,);
+// getReport();
